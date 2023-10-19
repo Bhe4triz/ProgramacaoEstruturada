@@ -1,0 +1,67 @@
+//Nome: Bheatriz Almeida Santos de Jesus
+//RA: 11202131693
+
+/*1. Escreva um programa que receba um caractere e uma frase e que imprima a frase até 
+a primeira ocorrência do caractere fornecido. O seu programa funciona corretamente mesmo que o
+caractere fornecido não apareça na frase? Veja o exemplo abaixo.
+Entrada: 
+,
+A vida eh como uma caixa de chocolates, voce nunca sabe o que vai encontrar."
+Saída: A vida eh como uma caixa de chocolates */
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#define MAX 10000
+
+int tamanho(char string[]) {
+    int i;
+    
+    for (i = 0; string[i] != '\0'; i++) ;
+        return i;
+}
+
+
+int ocorre(char texto[], int pos, char padrao[]) {
+    int j;
+    for (j = 0; padrao[j] != '\0'; j++)
+        if (texto[pos + j] == '\0' || (texto[pos + j] != padrao[j] && padrao[j] != '*'))
+            return 0;
+ return 1;
+}
+
+void imprime_trecho(char texto[], int ini, int tam) {
+    int j;
+    
+    printf("Saída: %d: ", ini);
+    for (j = 0; j < tam; j++)
+        printf("%c", texto[ini + j]);
+    
+    printf("\n");
+}
+
+int main () {
+    int i =0;
+    char caractere[MAX], texto[MAX];
+
+    printf("Esse programa ira imprimir a frase digitada até encontrar o caractere fornecido, em caso de nao constar na frase a frase completa sera infomada. \n Escreva um caractere e uma frase: ");
+    scanf("%s ", caractere);
+    fgets(caractere, MAX, stdin);
+
+    le(); //le o que esta até a pessoa digitar o enter "/0", com isso separar um de outro 
+    ocorre(texto, i, caractere); //tamanho do texto até a ocorrencia;
+    imprime_trecho(texto, i, tamanho(caractere));
+
+    
+    
+    scanf("%s ", texto);
+    fgets(texto, MAX, stdin);
+    getchar();
+
+    printf("Procurando por %s no texto: %s \n", caractere, texto);
+    for (i = 0; texto[i] != '\0'; i++)
+        if (ocorre(texto, i, caractere))
+            imprime_trecho(texto, i, tamanho(caractere));
+
+    return 0;
+};
