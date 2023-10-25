@@ -22,7 +22,7 @@ typedef struct epigrafo{
 int acha_caractere(char c, char f[]){
     int i;
 
-    for (i = 0; f[i] != f[MAX]; i++) //\0 e o final da string, testar depois
+    for (i = 0; f[i] != '\0'; i++) //'\0' e o final da string, testar depois
         if (f[i] != c)
             printf("%c", f[i]);
         else
