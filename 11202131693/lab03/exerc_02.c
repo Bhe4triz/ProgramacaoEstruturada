@@ -35,7 +35,7 @@ int conta_cadeia_zeros(char cadeia[]){
 int main (){
     char cadeia[MAX];
     printf("Digite a cadeia a ser lida: \n");
-    scanf("%s", cadeia);
+    fgets(cadeia, MAX, stdin);
 
     printf("%d",conta_cadeia_zeros(cadeia));
 

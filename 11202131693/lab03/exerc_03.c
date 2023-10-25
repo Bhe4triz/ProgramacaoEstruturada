@@ -5,9 +5,12 @@
 Entrada: Sao Paulo
 Saída: sAO pAULO */
 
+//usar tabela ascii
+
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#define MAX 1000
 
 int main () {
 
