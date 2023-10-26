@@ -15,16 +15,18 @@ typedef struct epigrafo{
 } Texto;
 
 int acha_palavra(char palavra[], char frase[]){
-    int i,j,qt,temPalavra = 0;
+    int i,j,qt,temPalavra = 1;
     
-    for (i=0; palavra[i]!='\n'){
+    for (i=0; palavra[i]!='\0'; i++){
         qt+=1;
     }
 
     for (i = 0; frase[i] != '\0'; i++){ 
         for (j = 0; palavra[j] != '\0'; j++){
+            
             if(palavra[j] == frase[i+j]){
-                temPalavra += 1;     
+                
+                temPalavra = 1;     
             }
             else{
                 temPalavra = 0;
@@ -45,8 +47,12 @@ int main () {
     printf("Digite a palavra e em seguida a frase: \n");
     fgets(f.palavra, MAX, stdin); 
     getchar();
-
+    f.palavra[strcspn(f.palavra, "\n")] = '\0';
+    
     fgets(f.frase, MAX, stdin); //scan do texto
+    getchar();
+    f.palavra[strcspn(f.palavra, "\n")] = '\0';
+    
     
     if(acha_palavra(f.palavra,f.frase) == 1){
         printf("sim");
