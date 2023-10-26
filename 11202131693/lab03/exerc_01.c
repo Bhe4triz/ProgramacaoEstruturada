@@ -40,8 +40,6 @@ int main () {
     getchar();
 
     fgets(f.frase, MAX, stdin); //scan do texto
-    
-
     acha_caractere(f.caratere,f.frase);
 
     return 0;

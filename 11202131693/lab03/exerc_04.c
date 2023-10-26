@@ -15,19 +15,22 @@ typedef struct epigrafo{
 } Texto;
 
 int acha_palavra(char palavra[], char frase[]){
-    int i,j,temPalavra = 0;
+    int i,j,qt,temPalavra = 0;
+    
+    for (i=0; palavra[i]!='\n'){
+        qt+=1;
+    }
 
     for (i = 0; frase[i] != '\0'; i++){ 
         for (j = 0; palavra[j] != '\0'; j++){
             if(palavra[j] == frase[i+j]){
-                temPalavra = 1;     
+                temPalavra += 1;     
             }
             else{
                 temPalavra = 0;
                 break;
             }
         }
-
          if (temPalavra == 1){
             break;
         }
